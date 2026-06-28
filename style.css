@@ -18,8 +18,8 @@ body {
 
 nav {
     width: 100%;
-    padding:14px 18px;
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
 
 }
 
@@ -34,19 +34,20 @@ nav {
     font-size: 1.2rem;
 }
 
-.navbar .ham{
+.navbar .ham {
     font-size: 1.3rem;
     cursor: pointer;
 }
 
-.add .plus{
+.add .plus {
     font-size: 1.2rem;
 }
-.add button{
+
+.add button {
     outline: none;
     border: none;
     padding: 7px 8px;
-    background:#8B5CF6;
+    background: #8B5CF6;
     color: white;
     border-radius: 3px;
     font-family: "Poppins", sans-serif;
@@ -57,30 +58,176 @@ nav {
     gap: 0.2rem;
 }
 
-.add button:hover{
-    background:#7C3AED;
-    box-shadow:0 10px 20px rgba(139,92,246,.3);
+.add button:hover {
+    background: #7C3AED;
+    box-shadow: 0 10px 20px rgba(139, 92, 246, .3);
+}
+
+
+
+.container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    padding: 0.6rem 0;
+}
+
+.dashboard p {
+    color: gray;
+    font-size: 0.9rem;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+}
+
+.summary {
+    padding: 10px 0;
+    width: 100%;
+    /* display: flex; */
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #181D2A;
+    border: 1px solid rgba(255, 255, 255, .05);
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    width: 95%;
+}
+
+.cards:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #8B5CF6;
+
+}
+
+.wallet {
+    padding: 6px;
+    border-radius: 7px;
+    background-color: purple;
+
+}
+
+.money {
+    padding: 6px;
+    border-radius: 7px;
+    background-color: rgb(100, 242, 100);
+}
+
+.arrow {
+    padding: 6px;
+    border-radius: 7px;
+    background-color: rgb(159, 0, 0);
+    font-size: 1.1rem;
+}
+
+.notes {
+    padding: 6px;
+    border-radius: 7px;
+    background-color: orangered;
+    font-size: 1.1rem;
+}
+
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.balance h3,
+.income h3,
+.expenses h3{
+    font-size: 1.2rem;
+}
+
+.transactions h3{
+    font-size: 0.9rem;
+}
+.amount h4 {
+    font-size: 1.4rem;
 }
 
 
 
 
 @media (min-width:1024px) {
-    .add button{
+    .add button {
         padding: 10px 20px;
         font-size: 1.1rem;
         border-radius: 7px;
     }
 
-    .navbar h1{
+    .navbar h1 {
         font-size: 2rem;
         cursor: pointer;
     }
-    .ham{
+
+    .ham {
         display: none;
     }
-    nav{
-        padding:18px 40px;
+
+    nav {
+        padding: 18px 40px;
         border-bottom: none;
+    }
+
+    .dashboard p {
+        font-size: 1.2rem;
+    }
+
+    .dashboard h1 {
+        font-size: 2rem;
+        padding: 1rem 0;
+    }
+
+    .cards {
+        padding: 20px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .amount h4 {
+        font-size: 2rem;
+    }
+
+    .balance h3,
+    .income h3,
+    .expenses h3{
+        font-size: 1.9rem;
+    }
+
+    .balance h4,
+    .income h4,
+    .expenses h4{
+        font-size: 1.9rem;
+    }
+
+    .transactions h3 {
+        font-size: 1.5rem;
+    }
+
+    .transactions h4 {
+        font-size: 1.9rem;
     }
 }
