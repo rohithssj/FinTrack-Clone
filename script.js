@@ -23,7 +23,7 @@ const expenseAmount = document.querySelector(".expense-amount")
 const transactionAmount = document.querySelector(".transaction-amount")
 
 
-let transactions = []
+let transactions = JSON.parse(localStorage.getItem("transactions")) || []
 let transactionType = "income"
 
 incomeBtn.addEventListener("click", () => {
@@ -116,7 +116,7 @@ const renderCards = () => {
 
         <div class="delete">
 
-            <button class="delete-btn">
+            <button class="delete-btn"  data-id="${transaction.id}">
 
                 <i class="ri-delete-bin-line"></i>
 
@@ -127,6 +127,18 @@ const renderCards = () => {
     </div>
 `
         transactionList.appendChild(card)
+        const deleteBtn = document.querySelector(".delete-btn")
+        deleteBtn.addEventListener("click", () => {
+            const id = Number(deleteBtn.dataset.id)
+
+            transactions = transactions.filter(transaction => {
+                return transaction.id !== id;
+            })
+            saveToLocalStorage()
+            renderCards()
+            update()
+        })
+
     })
 }
 
@@ -190,9 +202,18 @@ saveBtn.addEventListener("click", () => {
         date
     }
     transactions.push(transaction)
+
     renderCards()
     update()
     closeInfo()
 
     console.log(transactions)
 })
+
+function saveToLocalStorage() {
+    localStorage.setItem("transactions", JSON.stringify(transactions))
+}
+
+
+renderCards()
+update()
