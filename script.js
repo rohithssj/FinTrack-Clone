@@ -22,9 +22,33 @@ const incomeAmount = document.querySelector(".income-amount")
 const expenseAmount = document.querySelector(".expense-amount")
 const transactionAmount = document.querySelector(".transaction-amount")
 
+const allBtn = document.querySelector(".allbtn")
+const incomeInput = document.querySelector(".incomebtn")
+const expenseInput = document.querySelector(".expensebtn")
+
+const searchInput = document.querySelector(".search input")
+
+const ctx = document.getElementById("cashFlow-chart").getContext("2d");
+
+const usernameInput = document.querySelector("#username")
+const currencySelect = document.querySelector("#currency")
+const saveSettingsBtn = document.querySelector(".save-settings")
+
 
 let transactions = JSON.parse(localStorage.getItem("transactions")) || []
+let profile = JSON.parse(localStorage.getItem("profile")) || { name: "", currency: "INR" }
 let transactionType = "income"
+let current = "all"
+let searchText = ""
+let cashflowChart
+
+const currencySymbols = {
+    INR: "₹",
+    USD: "$",
+    EUR: "€",
+    GBP: "£",
+    JPY: "¥"
+};
 
 incomeBtn.addEventListener("click", () => {
     transactionType = "income"
@@ -77,11 +101,74 @@ settingModal.addEventListener("click", (e) => {
     }
 })
 
+allBtn.addEventListener("click", () => {
+    current = "all";
+    renderCards();
+});
+
+incomeInput.addEventListener("click", () => {
+    current = "income";
+    renderCards();
+});
+
+expenseInput.addEventListener("click", () => {
+    current = "expense";
+    renderCards();
+
+});
+
+searchInput.addEventListener("input", () => {
+
+    searchText = searchInput.value.toLowerCase()
+
+    renderCards()
+
+});
+
+
+saveSettingsBtn.addEventListener("click", () => {
+    profile.name = usernameInput.value.trim();
+    profile.currency = currencySelect.value;
+    localStorage.setItem("profile", JSON.stringify(profile));
+    loadProfile();
+    renderCards();
+    update();
+
+});
+
 
 const renderCards = () => {
     transactionList.innerHTML = ""
+    let filteredTransactions = transactions
 
-    transactions.forEach((transaction) => {
+    if (current === "income") {
+
+        filteredTransactions = transactions.filter(transaction => {
+
+            return transaction.type === "income"
+
+        })
+    }
+
+    if (current === "expense") {
+
+        filteredTransactions = transactions.filter(transaction => {
+
+            return transaction.type === "expense"
+
+        });
+
+    }
+
+    filteredTransactions = filteredTransactions.filter(transaction => {
+
+        return transaction.description.toLowerCase().includes(searchText);
+
+    });
+
+
+
+    filteredTransactions.forEach((transaction) => {
         const card = document.createElement("div")
         card.classList.add("transaction-card")
 
@@ -98,7 +185,7 @@ const renderCards = () => {
 
                 ${transaction.type === "income" ? "+" : "-"}
 
-                ₹${transaction.amount}
+                ${getCurrencySymbol()}${transaction.amount.toLocaleString("en-IN")}
 
                 </h2>
 
@@ -126,8 +213,10 @@ const renderCards = () => {
 
     </div>
 `
+
+
         transactionList.appendChild(card)
-        const deleteBtn = document.querySelector(".delete-btn")
+        const deleteBtn = card.querySelector(".delete-btn")
         deleteBtn.addEventListener("click", () => {
             const id = Number(deleteBtn.dataset.id)
 
@@ -136,6 +225,7 @@ const renderCards = () => {
             })
             saveToLocalStorage()
             renderCards()
+            updateChart()
             update()
         })
 
@@ -169,10 +259,16 @@ const update = () => {
 
     const balance = income - expense
 
-    balanceAmount.textContent = `₹${balance}`
-    incomeAmount.textContent = `₹${income}`
-    expenseAmount.textContent = `₹${expense}`
-    transactionAmount.textContent = transactions.length
+    const symbol = getCurrencySymbol();
+
+    balanceAmount.textContent =
+        `${symbol}${balance.toLocaleString("en-IN")}`;
+
+    incomeAmount.textContent =
+        `${symbol}${income.toLocaleString("en-IN")}`;
+
+    expenseAmount.textContent =
+        `${symbol}${expense.toLocaleString("en-IN")}`;
 }
 
 
@@ -204,7 +300,9 @@ saveBtn.addEventListener("click", () => {
     transactions.push(transaction)
 
     renderCards()
+    saveToLocalStorage()
     update()
+    updateChart()
     closeInfo()
 
     console.log(transactions)
@@ -214,6 +312,67 @@ function saveToLocalStorage() {
     localStorage.setItem("transactions", JSON.stringify(transactions))
 }
 
+function updateChart() {
+
+    let income = 0;
+    let expense = 0;
+
+    transactions.forEach(transaction => {
+
+        if (transaction.type === "income") {
+            income += transaction.amount;
+        } else {
+            expense += transaction.amount;
+        }
+
+    });
+
+    if (cashflowChart) {
+        cashflowChart.destroy();
+    }
+
+    cashflowChart = new Chart(ctx, {
+
+        type: "bar",
+
+        data: {
+            labels: ["Income", "Expense"],
+            datasets: [{
+                data: [income, expense],
+                backgroundColor: [
+                    "#22C55E",
+                    "#EF4444"
+                ],
+                borderRadius: 10
+            }]
+        },
+
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+
+    });
+
+}
+
+function loadProfile() {
+
+    usernameInput.value = profile.name;
+
+    currencySelect.value = profile.currency;
+
+}
+
+function getCurrencySymbol() {
+    return currencySymbols[profile.currency];
+}
 
 renderCards()
 update()
+updateChart()
+loadProfile()

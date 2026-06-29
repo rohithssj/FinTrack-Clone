@@ -13,6 +13,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -237,20 +238,18 @@
 
                 <div class="setting-group">
                     <label>Profile Name</label>
-                    <input type="text" placeholder="Enter your name">
+                    <input type="text" placeholder="Enter your name" id="username">
                 </div>
 
                 <div class="setting-group">
                     <label>Preferred Currency</label>
 
-                    <select>
-
-                        <option>INR ₹</option>
-                        <option>USD $</option>
-                        <option>EUR €</option>
-                        <option>GBP £</option>
-                        <option>JPY ¥</option>
-
+                    <select id="currency">
+                        <option value="INR">INR (₹)</option>
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="GBP">GBP (£)</option>
+                        <option value="JPY">JPY (¥)</option>
                     </select>
 
                 </div>
@@ -298,8 +297,8 @@
         </div>
 
     </section>
-
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" type="module"></script>
 </body>
 
 </html>
