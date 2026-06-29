@@ -97,9 +97,9 @@
                     <p>Manage all your income and expenses.</p>
                 </div>
 
-                <button class="view-all">
+                <!-- <button class="view-all">
                     View All
-                </button>
+                </button> -->
 
             </div>
 
@@ -109,7 +109,6 @@
 
                     <button class="active allbtn">All</button>
                     <button class="incomebtn">Income</button>
-
                     <button class="expensebtn">Expense</button>
 
                 </div>
@@ -124,10 +123,99 @@
 
             <div class="transaction-list">
 
-                
+                <div class="transaction-card">
 
+                    <div class="transaction-top">
+
+                        <div class="transaction-details">
+                            <div class="bottom-section">
+                                <h3>Salary</h3>
+                                <h2 class="income-text">+ ₹35,000</h2>
+                            </div>
+                            <p>Salary</p>
+                        </div>
+                    </div>
+
+                    <div class="transaction-bottom">
+                        <span>28 Jun 2026</span>
+
+                        <div class="delete">
+                            <button class="delete-btn">
+                                <i class="ri-delete-bin-line"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="transaction-card">
+
+                    <div class="transaction-top">
+
+                        <div class="transaction-details">
+                            <div class="bottom-section">
+                                <h3>Salary</h3>
+                                <h2 class="income-text">+ ₹35,000</h2>
+                            </div>
+                            <p>Salary</p>
+                        </div>
+                    </div>
+
+                    <div class="transaction-bottom">
+                        <span>28 Jun 2026</span>
+
+                        <div class="delete">
+                            <button class="delete-btn">
+                                <i class="ri-delete-bin-line"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+        </section>
+
+        <section class="modal">
+            <div class="transaction-modal">
+                <div class="modal-top">
+                    <h1>Add Transaction</h1>
+                    <i class="ri-close-large-fill cross"></i>
+                </div>
+                <div class="modal-bottom">
+                    <div class="type">
+                        <h2>Type</h2>
+                        <button class="income-type">Income</button>
+                        <button class="expense-type">Expense</button>
+                    </div>
+                    <div class="desc">
+                        <h2>Description</h2>
+                        <input type="text">
+                    </div>
+                    <div class="amount-field">
+                        <h2>Amount</h2>
+                        <input type="number">
+                    </div>
+                    <div class="categories">
+                        <h2>Catergory</h2>
+                        <select name="" id="">
+                            <option value="food">Food</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="business">Business</option>
+                            <option value="investment">Investment</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="date">
+                        <h2>Date</h2>
+                        <input type="date">
+                    </div>
+                    <div class="bottom-btns">
+                        <button class="cancel">Cancel</button>
+                        <button class="save">Save</button>
+                    </div>
+                </div>
             </div>
-
         </section>
     </main>
 </body>
