@@ -34,6 +34,8 @@ const usernameInput = document.querySelector("#username")
 const currencySelect = document.querySelector("#currency")
 const saveSettingsBtn = document.querySelector(".save-settings")
 
+const resetBtn = document.querySelector(".reset-btn")
+
 
 let transactions = JSON.parse(localStorage.getItem("transactions")) || []
 let profile = JSON.parse(localStorage.getItem("profile")) || { name: "", currency: "INR" }
@@ -135,6 +137,18 @@ saveSettingsBtn.addEventListener("click", () => {
     update();
 
 });
+
+resetBtn.addEventListener("click", () => {
+    const confirmReset = confirm("Are you sure you want to delete all your transactions?")
+    transactions = []
+    localStorage.removeItem("transactions")
+    localStorage.removeItem("profile")
+    localStorage.removeItem("theme")
+    renderCards()
+    update()
+    updateChart()
+    if (!confirmReset) return
+})
 
 
 const renderCards = () => {
