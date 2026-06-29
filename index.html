@@ -66,23 +66,69 @@
                         <h3>Transactions</h3>
                     </div>
                     <div>
-                        <h4 class="transaction-amount">₹0</h4>
+                        <h4 class="transaction-amount">0</h4>
                     </div>
                 </div>
             </div>
         </div>
         <div class="cashflow">
             <div class="cashflow-header">
-                <div>
+                <div class="top">
                     <h1>Cashflow Overview</h1>
+                    <select name="" id="">
+                        <option value="this">This Month</option>
+                        <option value="last">Last Month</option>
+                        <option value="year">This Year</option>
+                    </select>
                 </div>
-                <select name="" id="">
-                    <option value="this">This Month</option>
-                    <option value="last">Last Month</option>
-                    <option value="year">This Year</option>
-                </select>
+
+                <div class="chart">
+                    <canvas id="cashFlow-chart"></canvas>
+                </div>
+
             </div>
         </div>
+        <section class="transactions-section">
+
+            <div class="transactions-header">
+
+                <div class="title">
+                    <h2>Recent Transactions</h2>
+                    <p>Manage all your income and expenses.</p>
+                </div>
+
+                <button class="view-all">
+                    View All
+                </button>
+
+            </div>
+
+            <div class="toolbar">
+
+                <div class="filters">
+
+                    <button class="active allbtn">All</button>
+                    <button class="incomebtn">Income</button>
+
+                    <button class="expensebtn">Expense</button>
+
+                </div>
+
+                <div class="search">
+
+                    <input type="text" placeholder="Search...">
+
+                </div>
+
+            </div>
+
+            <div class="transaction-list">
+
+                
+
+            </div>
+
+        </section>
     </main>
 </body>
 

@@ -115,6 +115,7 @@ nav {
     transform: translateY(-5px);
 
     border-color: #8B5CF6;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
 
 }
 
@@ -155,19 +156,143 @@ nav {
 
 .balance h3,
 .income h3,
-.expenses h3{
+.expenses h3 {
     font-size: 1.2rem;
 }
 
-.transactions h3{
+.transactions h3 {
     font-size: 0.9rem;
 }
+
 .amount h4 {
     font-size: 1.4rem;
 }
 
+.cashflow {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background: #181D2A;
+    border: 1px solid rgba(255, 255, 255, .05);
+    border-radius: 16px;
+}
+
+.top h1 {
+    font-size: 1rem;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top select {
+    outline: none;
+    border: none;
+    background: #11151F;
+    color: #E5E7EB;
+    padding: 8px 10px;
+    text-align: center;
+    border: 1px solid rgba(239, 228, 228, 0.482);
+    border-radius: 7px;
+}
+
+.chart {
+    margin-top: 1.5rem;
+    min-height: 320px;
+    border-radius: 12px;
+    background: #11151F;
+    border: 1px dashed rgba(255, 255, 255, .08);
+}
 
 
+.transactions-section {
+    padding: 13px;
+    margin-top: 14px;
+    border-radius: 10px;
+    width: 100%;
+    background: #181D2A;
+}
+
+.title h2 {
+    font-size: 1rem;
+}
+
+.title p {
+    font-size: 0.7rem;
+    font-weight: 400;
+}
+
+.transactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-all {
+    padding: 7px 10px;
+    cursor: pointer;
+    border-radius: 7px;
+    outline: none;
+    background-color: yellowgreen;
+    color: black;
+}
+
+.toolbar {
+    margin-top: 8px;
+}
+
+.filters {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.allbtn {
+    outline: none;
+    padding: 5px 12px;
+    border-radius: 5px;
+    background-color: #7C3AED;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.incomebtn {
+    outline: none;
+    padding: 5px 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: limegreen;
+    color: white;
+    cursor: pointer;
+}
+
+.expensebtn {
+    outline: none;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: red;
+    color: white;
+
+}
+
+.search {
+    margin-top: 10px;
+}
+
+.search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+
+
+}
 
 @media (min-width:1024px) {
     .add button {
@@ -187,7 +312,7 @@ nav {
 
     nav {
         padding: 18px 40px;
-        border-bottom: none;
+        /* border-bottom: none; */
     }
 
     .dashboard p {
@@ -213,13 +338,13 @@ nav {
 
     .balance h3,
     .income h3,
-    .expenses h3{
+    .expenses h3 {
         font-size: 1.9rem;
     }
 
     .balance h4,
     .income h4,
-    .expenses h4{
+    .expenses h4 {
         font-size: 1.9rem;
     }
 
@@ -230,4 +355,22 @@ nav {
     .transactions h4 {
         font-size: 1.9rem;
     }
+
+    .cashflow {
+        margin-top: 10px;
+    }
+
+    .top h1 {
+        font-size: 1.4rem;
+    }
+
+    .title h2 {
+        font-size: 1.5rem;
+    }
+
+    .title p {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
 }
