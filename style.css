@@ -43,6 +43,10 @@ nav {
     font-size: 1.2rem;
 }
 
+.add .setting{
+    display: none;
+}
+
 .add button {
     outline: none;
     border: none;
@@ -367,9 +371,9 @@ nav {
 .transaction-modal {
     background: #181D2A;
     padding: 18px;
-    margin-top: 10px;
+    margin: 10px auto;
     border-radius: 10px;
-    width: 92%;
+    width: min(500px, 92%);
 }
 
 
@@ -381,7 +385,7 @@ nav {
     padding: 5px;
     border-bottom: 1px solid rgba(255, 255, 255, .08);
     /* justify-content: center; */
-    cursor: pointer;
+
 }
 
 .modal-top h1 {
@@ -392,25 +396,34 @@ nav {
     padding: 10px;
     background-color: rgb(212, 37, 37);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .modal-bottom {
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .type button {
     text-align: center;
-    padding: 7px 10px;
+    padding: 10px 10px;
     margin-top: 10px;
-    border-radius: 6px;
+    border-radius: 999px;
     outline: none;
     border: none;
 }
-.desc,.categories,.date,.bottom-btns{
+
+.desc,
+.categories,
+.date,
+.bottom-btns {
     margin-top: 10px;
 }
 
-.desc input,.amount-field input {
+.desc input,
+.amount-field input {
     padding: 7px;
     background: #11151F;
     border: 1px solid rgba(255, 255, 255, .08);
@@ -420,36 +433,186 @@ nav {
     border-radius: 6px;
 }
 
-.cancel{
-    padding: 6px 10px;
-    border-radius: 3px;
+.cancel {
+    padding: 12px 20px;
+    border-radius: 10px;
     border: none;
     outline: none;
-    background-color: rgb(208, 46, 46);
+    background: #2A2F3C;
     color: white;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-.bottom-btns{
+.bottom-btns {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.save{
-    padding: 6px 10px;
-    border-radius: 3px;
+.save {
+    padding: 12px 20px;
+    border-radius: 10px;
     border: none;
+    cursor: pointer;
     outline: none;
-    background-color: rgb(76, 227, 76);
+    background-color: rgb(118, 207, 118);
+    color: white;
+    font-weight: 600;
+
+}
+
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.modal-bottom input,
+.modal-bottom select {
+    width: 100%;
+    padding: 12px;
+    background: #11151F;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+}
+
+.categories select {
+    appearance: none;
+}
+
+
+.settings-modal {
+    position: fixed;
+    inset: 0;
+    display:none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .7);
+    z-index: 1000;
+}
+
+
+.settings-box {
+    width: min(500px, 92%);
+    background: #181D2A;
+    border-radius: 14px;
+    padding: 24px;
+    margin: 40px auto;
+}
+
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    padding-bottom: 15px;
+}
+
+
+.settings-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+
+.setting-group input,
+.setting-group select {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    background: #11151F;
     color: white;
 }
+
+.toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reset-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #2A1A1A;
+    color: #FB7185;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.reset-btn:hover {
+    background: #FB7185;
+    color: white;
+}
+
+.settings-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+
+.cancel-settings {
+    flex: 1;
+    padding: 12px;
+    background: #2A2F3C;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.save-settings {
+    flex: 1;
+    padding: 12px;
+    background: #8B5CF6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+
+
 
 @media (min-width:1024px) {
     .add button {
         padding: 10px 20px;
         font-size: 1.1rem;
         border-radius: 7px;
+    }
+
+    .add{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .add .setting{
+        font-size: 1.6rem;
+        cursor: pointer;
+        padding: 10px;
+        background-color:#2A1A1A;
+        border-radius: 10px;
     }
 
     .navbar h1 {
@@ -559,7 +722,39 @@ nav {
         font-size: 2rem;
     }
 
-    .transaction-modal{
+    .transaction-modal {
         width: 500px;
+    }
+
+    .modal-top {
+        justify-content: space-between;
+    }
+
+    .type {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-bottom h2 {
+        font-size: 2rem;
+    }
+
+    .type-btns {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+    }
+
+    .type-btns button {
+        cursor: pointer;
+    }
+
+    .transaction-modal {
+        margin: 40px auto;
+    }
+
+    .settings-box {
+        margin: 90px auto;
     }
 }

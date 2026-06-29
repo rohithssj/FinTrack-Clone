@@ -19,10 +19,12 @@
 <body>
     <nav>
         <div class="navbar">
-            <i class="ri-menu-2-line ham"></i>
+            <!-- <i class="ri-menu-2-line ham"></i> -->
+            <i class="ri-settings-3-line ham"></i>
             <h1> <i class="ri-wallet-3-fill"></i> FinTrack Pro</h1>
             <div class="add">
                 <button><i class="ri-add-line plus"></i> Add Transaction</button>
+                <i class="ri-settings-3-line setting"></i>
             </div>
         </div>
     </nav>
@@ -176,48 +178,126 @@
 
         </section>
 
-        <section class="modal">
-            <div class="transaction-modal">
-                <div class="modal-top">
-                    <h1>Add Transaction</h1>
-                    <i class="ri-close-large-fill cross"></i>
-                </div>
-                <div class="modal-bottom">
-                    <div class="type">
-                        <h2>Type</h2>
+    </main>
+
+    <section class="modal">
+        <div class="transaction-modal">
+            <div class="modal-top">
+                <h1>Add Transaction</h1>
+                <i class="ri-close-large-fill cross"></i>
+            </div>
+            <div class="modal-bottom">
+                <div class="type">
+                    <h2>Type</h2>
+                    <div class="type-btns">
                         <button class="income-type">Income</button>
                         <button class="expense-type">Expense</button>
                     </div>
-                    <div class="desc">
-                        <h2>Description</h2>
-                        <input type="text">
-                    </div>
-                    <div class="amount-field">
-                        <h2>Amount</h2>
-                        <input type="number">
-                    </div>
-                    <div class="categories">
-                        <h2>Catergory</h2>
-                        <select name="" id="">
-                            <option value="food">Food</option>
-                            <option value="shopping">Shopping</option>
-                            <option value="business">Business</option>
-                            <option value="investment">Investment</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="date">
-                        <h2>Date</h2>
-                        <input type="date">
-                    </div>
-                    <div class="bottom-btns">
-                        <button class="cancel">Cancel</button>
-                        <button class="save">Save</button>
-                    </div>
+                </div>
+                <div class="desc">
+                    <h2>Description</h2>
+                    <input type="text">
+                </div>
+                <div class="amount-field">
+                    <h2>Amount</h2>
+                    <input type="number">
+                </div>
+                <div class="categories">
+                    <h2>Catergory</h2>
+                    <select name="" id="">
+                        <option value="food">Food</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="business">Business</option>
+                        <option value="investment">Investment</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="date">
+                    <h2>Date</h2>
+                    <input type="date">
+                </div>
+                <div class="bottom-btns">
+                    <button class="cancel">Cancel</button>
+                    <button class="save">Save</button>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <section class="settings-modal">
+
+        <div class="settings-box">
+
+            <div class="settings-header">
+                <h2>⚙️ Settings</h2>
+                <i class="ri-close-large-line settings-close"></i>
+            </div>
+
+            <div class="settings-body">
+
+                <div class="setting-group">
+                    <label>Profile Name</label>
+                    <input type="text" placeholder="Enter your name">
+                </div>
+
+                <div class="setting-group">
+                    <label>Preferred Currency</label>
+
+                    <select>
+
+                        <option>INR ₹</option>
+                        <option>USD $</option>
+                        <option>EUR €</option>
+                        <option>GBP £</option>
+                        <option>JPY ¥</option>
+
+                    </select>
+
+                </div>
+
+                <div class="setting-group toggle-row">
+
+                    <span>Dark Mode</span>
+
+                    <label class="switch">
+
+                        <input type="checkbox">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="setting-group">
+
+                    <button class="reset-btn">
+
+                        <i class="ri-delete-bin-line"></i>
+
+                        Reset All Data
+
+                    </button>
+
+                </div>
+
+                <div class="settings-buttons">
+
+                    <button class="cancel-settings">
+                        Cancel
+                    </button>
+
+                    <button class="save-settings">
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 </body>
 
 </html>
