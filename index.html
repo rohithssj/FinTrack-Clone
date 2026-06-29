@@ -23,7 +23,7 @@
             <i class="ri-settings-3-line ham"></i>
             <h1> <i class="ri-wallet-3-fill"></i> FinTrack Pro</h1>
             <div class="add">
-                <button><i class="ri-add-line plus"></i> Add Transaction</button>
+                <button class="addbtn"><i class="ri-add-line plus"></i> Add Transaction</button>
                 <i class="ri-settings-3-line setting"></i>
             </div>
         </div>
@@ -196,15 +196,15 @@
                 </div>
                 <div class="desc">
                     <h2>Description</h2>
-                    <input type="text">
+                    <input type="text" id="desc">
                 </div>
                 <div class="amount-field">
                     <h2>Amount</h2>
-                    <input type="number">
+                    <input type="number" id="amount">
                 </div>
                 <div class="categories">
                     <h2>Catergory</h2>
-                    <select name="" id="">
+                    <select name="" id="category">
                         <option value="food">Food</option>
                         <option value="shopping">Shopping</option>
                         <option value="business">Business</option>
@@ -214,7 +214,7 @@
                 </div>
                 <div class="date">
                     <h2>Date</h2>
-                    <input type="date">
+                    <input type="date" id="date">
                 </div>
                 <div class="bottom-btns">
                     <button class="cancel">Cancel</button>
@@ -298,6 +298,8 @@
         </div>
 
     </section>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

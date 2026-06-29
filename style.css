@@ -590,6 +590,13 @@ nav {
 
 }
 
+.modal.show{
+    display: flex;
+}
+
+.settings-modal.show2{
+    display: flex;
+}
 
 
 
@@ -613,6 +620,7 @@ nav {
         padding: 10px;
         background-color:#2A1A1A;
         border-radius: 10px;
+        display: flex;
     }
 
     .navbar h1 {
