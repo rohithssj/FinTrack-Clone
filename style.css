@@ -43,7 +43,7 @@ nav {
     font-size: 1.2rem;
 }
 
-.add .setting{
+.add .setting {
     display: none;
 }
 
@@ -494,7 +494,7 @@ nav {
 .settings-modal {
     position: fixed;
     inset: 0;
-    display:none;
+    display: none;
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, .7);
@@ -590,11 +590,26 @@ nav {
 
 }
 
-.modal.show{
+.expense-text {
+    color: #EF4444;
+}
+
+.income-type.active {
+    background: #22C55E;
+    color: white;
+}
+
+.expense-type.active {
+    background: #EF4444;
+    color: white;
+}
+
+
+.modal.show {
     display: flex;
 }
 
-.settings-modal.show2{
+.settings-modal.show2 {
     display: flex;
 }
 
@@ -607,18 +622,18 @@ nav {
         border-radius: 7px;
     }
 
-    .add{
+    .add {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 1rem;
     }
 
-    .add .setting{
+    .add .setting {
         font-size: 1.6rem;
         cursor: pointer;
         padding: 10px;
-        background-color:#2A1A1A;
+        background-color: #2A1A1A;
         border-radius: 10px;
         display: flex;
     }
